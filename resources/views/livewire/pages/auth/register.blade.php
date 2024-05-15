@@ -12,6 +12,8 @@ use Livewire\Volt\Component;
 new #[Layout('layouts.guest')] class extends Component
 {
     public string $name = '';
+    public string $lastName = '';
+    public string $phoneNumber = '';
     public string $email = '';
     public string $password = '';
     public string $password_confirmation = '';
@@ -23,7 +25,9 @@ new #[Layout('layouts.guest')] class extends Component
     {
         $validated = $this->validate([
             'name' => ['required', 'string', 'max:255'],
+            'lastName' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
+            'phoneNumber' => ['required', 'string', 'max:15'],
             'password' => ['required', 'string', 'confirmed', Rules\Password::defaults()],
         ]);
 
@@ -46,11 +50,25 @@ new #[Layout('layouts.guest')] class extends Component
             <x-input-error :messages="$errors->get('name')" class="mt-2" />
         </div>
 
+        <!-- Last Name -->
+        <div class="mt-4">
+            <x-input-label for="lastName" :value="__('Last Name')" />
+            <x-text-input wire:model="lastName" id="lastName" class="block mt-1 w-full" type="text" name="lastName" required autofocus autocomplete="lastName" />
+            <x-input-error :messages="$errors->get('lastName')" class="mt-2" />
+        </div>
+
         <!-- Email Address -->
         <div class="mt-4">
             <x-input-label for="email" :value="__('Email')" />
             <x-text-input wire:model="email" id="email" class="block mt-1 w-full" type="email" name="email" required autocomplete="username" />
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
+        </div>
+
+        <!-- Phone Number -->
+        <div class="mt-4">
+            <x-input-label for="phoneNumber" :value="__('Phone Number')" />
+            <x-text-input wire:model="phoneNumber" id="phoneNumber" class="block mt-1 w-full" type="tel" name="phoneNumber" required autocomplete="phoneNumber" />
+            <x-input-error :messages="$errors->get('phonNumber')" class="mt-2" />
         </div>
 
         <!-- Password -->

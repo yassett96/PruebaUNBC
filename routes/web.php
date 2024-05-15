@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,5 +23,26 @@ Route::view('dashboard', 'dashboard')
 Route::view('profile', 'profile')
     ->middleware(['auth'])
     ->name('profile');
+
+Route::view('adminPanel', 'adminPanel')
+    ->middleware(['auth'])
+    ->name('adminPanel');
+
+// Para obtener los datos en el panel de administrador
+Route::get('adminPanel', [AdminController::class, 'index'])
+    ->middleware(['auth'])
+    ->name('adminPanel');
+
+// Para guardar un nuevo usuario
+Route::post('guardar-usuario', [AdminController::class, 'store'])
+    ->name('adminPanelSave');
+
+// Para actualizar el usuario
+Route::put('actualizar-usuario/{id}', [AdminController::class, 'update'])
+    ->name('adminPanelEdit');
+
+// Para eliminar el usuario
+Route::delete('eliminar-usuarios/{id}', [AdminController::class, 'destroy'])
+    ->name('adminPanelDestroy');
 
 require __DIR__.'/auth.php';
