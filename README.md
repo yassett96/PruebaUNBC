@@ -1,3 +1,48 @@
+## ======================================================= Instrucciones para levantar el proyecto localmente ========================================================================================
+    1. Se debe de descargar el repositorio
+    2. De ser necesario se debe de crear la base de datos en MySQL, para así tener conexión a nivel local. El transact para crearlo está en la raíz del proyecto.
+        Si se decide de utilizar la base de datos con datos iniciales (Database_PruebaUNBC_EstructuraYDatos.sql) los usuarios creados son:
+            - María Montiel
+                Correo: mariamontiel@gmail.com
+                Pass: Maria123
+                
+            - Samir Morales
+                Correo: samirmorales@gmail.com
+                Pass: Samir123
+                
+            - Eugenio Derbez
+                Correo: euderbez@gmail.com
+                Pass: Eugenio123
+
+        Si se decide de utilizar la base de datos sin datos (Database_PruebaUNBC_SoloEstructura.sql) se debe de registrar un primer usuario en la pestaña de 'Register' una vez arrancado la aplicación
+
+        La configuración para la ocnexión en el archivo .env viene de la sigueinte forma:
+            DB_CONNECTION=mysql
+            DB_HOST=127.0.0.1
+            DB_PORT=3306
+            DB_DATABASE=PruebaUNBC
+            DB_USERNAME=root
+            DB_PASSWORD=1234
+        Puede ser necesario cambiar el password, puerto, host o username para la conexión, dependiendo como se tiene configurado en su local.            
+    
+    3. Se debe de asegurar de tener instalado npm, Tailwind y ejecutar la migración
+        npm:
+            npm install
+
+        Tailwind:
+            npm install -D tailwindcss@latest postcss@latest autoprefixer@latest
+            npx tailwindcss init
+
+        Ejecutar la migración:
+            php artisan migrate        
+
+    3. Una vez descargado e iniciado todo, se debe de ejecutar lo siguientes comandos para levantar la aplicación:
+        a. npm run dev     (Para iniciar el servidor Vite)
+        b. php artisan serve       (Para iniciar el servidor de la aplicación)    
+    
+    4. Se puede proceder a abrir en el navegador la ruta de localhost:[puerto] para poder probar la aplicación
+## ==================================================================================================================================================================================================
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
