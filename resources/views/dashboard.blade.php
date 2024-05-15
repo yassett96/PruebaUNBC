@@ -9,6 +9,8 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
+                    <img src="{{ asset('images/UNBC.png') }}" alt="Descripción de la imagen">
+                    <br>                    
                     {{ __("¡¡¡Bienvenido!!!, esta es una prueba para optar al puesto de Dev Fullstack en UNBC.")}}
                     <br>
                     <br>
@@ -17,7 +19,8 @@
                     <br>
                     <br>
                     <br>
-                    {{ __("También se puede ver las funcionalidades al usuario ingresado en la pestaña 'Profile' desplegándolo en la parte superior derecha.") }}
+                    {{ __("También se puede probar las funcionalidades al usuario ingresado en la pestaña 'Profile' desplegándolo en la parte superior derecha.") }}                   
+                    
                 </div>
             </div>
         </div>
